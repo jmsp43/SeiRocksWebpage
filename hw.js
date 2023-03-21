@@ -171,11 +171,27 @@ let showingSubMenu = false
 
 // Task 5.2
 // Attach a delegated 'click' event listener to topMenuEl.
+//delegated = bubbling
 // The first line of code of the event listener function should call the event object's preventDefault()method.
 // The second line of code function should immediately return if the element clicked was not an <a>element.
 // console.logthe content of the <a>to verify the handler is working.
 
-
+// topMenuEl.addEventListener('click', function (event) {
+//     // Attach a delegated 'click' event listener to topMenuEl.
+//     //delegated = bubbling
+//     event.preventDefault()
+//     // The first line of code of the event listener function should call the event object's preventDefault()method.
+//     if (event.target.tagName !== 'A') {
+//         return
+//     }
+//     //tamara to the rescue showed me that 'a' needs to be capitalized bc its a tag name
+//     // The second line of code function should immediately return if the element clicked was not an <a>element.
+//     console.log(event.target.innerHTML)
+//     // console.logthe content of the <a>to verify the handler is working.
+//     //console.log(event.target.innerText) spits out ACCOUNT, ORDERS, etc
+//     // whereas console.log(event.target.innerHTML)
+//     //spits out account, orders, etc.
+// })
 
 
 
@@ -194,7 +210,23 @@ let showingSubMenu = false
 // Set the CSS topproperty of subMenuElto 0.
 // returnto exit the handler.
 
-
+topMenuEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    if (event.target.tagName !== 'A') {
+        return
+    }
+    console.log(event.target.innerHTML)
+    // Next in the event listener, if the clicked <a>link has a class of active:
+    if (event.target.className === 'active') {
+        //remove active class from clicked <a> element
+        showingSubMenu = false
+        // Set the showingSubMenuto false.
+        subMenuEl.style.top = '0'
+        // Set the CSS topproperty of subMenuElto 0.
+        return
+        // returnto exit the handler.
+    }
+})
 
 
 // Task 5.4
