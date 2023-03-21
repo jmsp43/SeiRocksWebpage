@@ -1,9 +1,27 @@
+// var menuLinks = [
+//     {text: 'about', href: '/about'},
+//     {text: 'catalog', href: '/catalog'},
+//     {text: 'orders', href: '/orders'},
+//     {text: 'account', href: '/account'},
+// ]
+
 var menuLinks = [
-    {text: 'about', href: '/about'},
-    {text: 'catalog', href: '/catalog'},
-    {text: 'orders', href: '/orders'},
-    {text: 'account', href: '/account'},
-]
+  {text: 'about', href: '/about'},
+  {text: 'catalog', href: '#', subLinks: [
+    {text: 'all', href: '/catalog/all'},
+    {text: 'top selling', href: '/catalog/top'},
+    {text: 'search', href: '/catalog/search'},
+  ]},
+  {text: 'orders', href: '#' , subLinks: [
+    {text: 'new', href: '/orders/new'},
+    {text: 'pending', href: '/orders/pending'},
+    {text: 'history', href: '/orders/history'},
+  ]},
+  {text: 'account', href: '#', subLinks: [
+    {text: 'profile', href: '/account/profile'},
+    {text: 'sign out', href: '/account/signout'},
+  ]},
+];
 
 // In the Intro to the DOM we selected, manipulated and created DOM elements - this lab provides practice doing the same.
 
@@ -104,57 +122,41 @@ for (const link of menuLinks) {
 // Task 4.0
 // Select and cache the <nav id="sub-menu">element in a variable named subMenuEl.
 
-
+const subMenuEl = document.querySelector('#sub-menu')
 
 
 // Task 4.1
 // Set the height subMenuElelement to be 100%.
 
-
+subMenuEl.style.height = '100%'
 
 
 // Task 4.2
 // Set the background color of subMenuElto the value stored in the --sub-menu-bgCSS custom property.
 
-
+subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)'
 
 
 // Task 4.3
 // Add the class of flex-aroundto the subMenuElelement.
 
-
+subMenuEl.classList.add = 'flex-around'
 
 //Task 4.4
 // Set the CSS positionproperty of subMenuElto the value of absolute.
 
-
+subMenuEl.style.position = 'absolute'
 
 
 // Task 4.5
 // Set the CSS topproperty of subMenuElto the value of 0.
 
+subMenuEl.style.top = '0'
 
 
 // Task 5.0
-// Update the menuLinksarray in script.js to this:
-// var menuLinks = [
-//   {text: 'about', href: '/about'},
-//   {text: 'catalog', href: '#', subLinks: [
-//     {text: 'all', href: '/catalog/all'},
-//     {text: 'top selling', href: '/catalog/top'},
-//     {text: 'search', href: '/catalog/search'},
-//   ]},
-//   {text: 'orders', href: '#' , subLinks: [
-//     {text: 'new', href: '/orders/new'},
-//     {text: 'pending', href: '/orders/pending'},
-//     {text: 'history', href: '/orders/history'},
-//   ]},
-//   {text: 'account', href: '#', subLinks: [
-//     {text: 'profile', href: '/account/profile'},
-//     {text: 'sign out', href: '/account/signout'},
-//   ]},
-// ];
-
+// Update the menuLinksarray in script.js.
+//done
 
 
 
@@ -162,6 +164,8 @@ for (const link of menuLinks) {
 // Select and cache the all of the <a>elements inside of topMenuElin a variable named topMenuLinks.
 // Declare a global showingSubMenuvariable and initialize it to false;
 
+const topMenuLinks = topMenuEl.querySelectorAll('a')
+let showingSubMenu = false
 
 
 
@@ -170,6 +174,7 @@ for (const link of menuLinks) {
 // The first line of code of the event listener function should call the event object's preventDefault()method.
 // The second line of code function should immediately return if the element clicked was not an <a>element.
 // console.logthe content of the <a>to verify the handler is working.
+
 
 
 
