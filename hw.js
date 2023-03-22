@@ -664,7 +664,9 @@ topMenuEl.addEventListener("click", function (event) {
   if (linkObj.hasOwnProperty("subLinks") == true) {
     showingSubMenu = true;
   } else {
-    showingSubMenu = false;
+      showingSubMenu = false;
+      //// If the ABOUT link is clicked, an <h1>about</h1>should be displayed.
+      mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
   }
   if (showingSubMenu === true) {
     function buildSubMenu(subLinksArr) {
@@ -695,10 +697,6 @@ topMenuEl.addEventListener("click", function (event) {
     }
     mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
   });
-     // If the ABOUT link is clicked, an <h1>about</h1>should be displayed.
-    if (event.target.innerText === "about") {
-      mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
-    }
 });
 
 // Congrats!
