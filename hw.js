@@ -140,7 +140,7 @@ subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)'
 // Task 4.3
 // Add the class of flex-aroundto the subMenuElelement.
 
-subMenuEl.classList.add = 'flex-around'
+subMenuEl.classList.add('flex-around') 
 
 //Task 4.4
 // Set the CSS positionproperty of subMenuElto the value of absolute.
@@ -210,39 +210,81 @@ let showingSubMenu = false
 // Set the CSS topproperty of subMenuElto 0.
 // returnto exit the handler.
 
-topMenuEl.addEventListener('click', function (event) {
-    event.preventDefault()
-    if (event.target.tagName !== 'A') {
-        return
-    }
-    console.log(event.target.innerHTML)
-    // Next in the event listener, if the clicked <a>link has a class of active:
-    if (event.target.className === 'active') {
-        //remove active class from clicked <a> element
-        showingSubMenu = false
-        // Set the showingSubMenuto false.
-        subMenuEl.style.top = '0'
-        // Set the CSS topproperty of subMenuElto 0.
-        return
-        // returnto exit the handler.
-    }
-})
+// topMenuEl.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     if (event.target.tagName !== 'A') {
+//         return
+//     }
+//     console.log(event.target.innerHTML)
+//     // Next in the event listener, if the clicked <a>link has a class of active:
+//     if (event.target.className === ('active')) {
+//         target.classList.remove('active')
+//         //remove active class from clicked <a> element
+//         showingSubMenu = false
+//         // Set the showingSubMenuto false.
+//         subMenuEl.style.top = '0'
+//         // Set the CSS topproperty of subMenuElto 0.
+//         return
+//         // return to exit the handler.
+//     }
+//     console.log(event.target.classList)
+//     //how to check if class list has active in it??
+// })
+
 
 
 // Task 5.4
 // Next, the event listener should remove a class name of activefrom each <a>element in topMenuLinks- whether the activeclass exists or not.
 // Hint: Removing a non-existent class from an element does not cause an error, so just remove it!
 
-
-
+// topMenuEl.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     if (event.target.tagName !== 'A') {
+//         return
+//     }
+//     //console.log('clicked')
+//     //console.log(event.target.innerHTML)
+//     //console.log(topMenuLinks)
+//     if (event.target.className === ('active')) {
+//         target.classList.remove('active')
+//         showingSubMenu = false
+//         subMenuEl.style.top = '0'
+//         console.log(target.classList)
+//         return
+//     }
+//     //why is childElementCount not working
+//     //idk, but length works
+//     for (let i = 0; i < topMenuLinks.length; i++) {
+//         topMenuLinks[i].classList.remove('active')
+//         console.log('hello')
+//     }
+//     // Next, the event listener should remove a class name of active from each <a> element in topMenuLinks- whether the activeclass exists or not.
+//     // Hint: Removing a non-existent class from an element does not cause an error, so just remove it!
+// })
 
 
 
 // Task 5.5
 // Next, the event listener should add a class name of activeto the <a>element that was clicked.
 
-
-
+// topMenuEl.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     if (event.target.tagName !== 'A') {
+//         return
+//     }
+//     //console.log(event.target.innerHTML)
+//     if (event.target.className === 'active') {
+//         target.classList.remove('active')
+//         showingSubMenu = false
+//         subMenuEl.style.top = '0'
+//         return
+//     }
+//     for (let i = 0; i < topMenuLinks.length; i++) {
+//         topMenuLinks[i].classList.remove('active')
+//     }
+//     event.target.classList.add('active')
+//     // Next, the event listener should add a class name of activeto the <a>element that was clicked.
+// })
 
 
 
@@ -250,7 +292,41 @@ topMenuEl.addEventListener('click', function (event) {
 // Set showingSubMenuto trueif the clicked <a>element's "link" object within menuLinkshas a subLinksproperty (all do, except for the "link" object for ABOUT), otherwise, set it to false.
 // Hint: Saving the "link" object in a variable will come in handy for passing its subLinksarray in Task 5.7
 
+// topMenuEl.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     if (event.target.tagName !== 'A') {
+//         return
+//     }
+//     //console.log(event.target.innerHTML)
+//     if (event.target.className === 'active') {
+//         event.target.classList.remove('active')
+//         showingSubMenu = false
+//         subMenuEl.style.top = '0'
+//         return
+//     }
+//     for (let i = 0; i < topMenuLinks.length; i++) {
+//         topMenuLinks[i].classList.remove('active')
+//     }
+//     event.target.classList.add('active')
+// // Hint: Saving the "link" object in a variable will come in handy for passing its subLinks array in Task 5.7
+//     //event.target prints <a> element itself
+//     //event.target.href prints link of page itself
 
+
+//     const linkObj = menuLinks.find(link => link.text === event.target.text)
+//     //originally did menuLinks.find(link => link.hasOwnProperty('subLinks')) but that just gave me the FIRST one that was true for (aka catalog) so I had to check if the text of what I was clicking matched first and then i could check if it has the subLinks property
+//     //console.log(linkObj)
+//     if (linkObj.hasOwnProperty('subLinks') == true) {
+//         showingSubMenu = true
+//         //console.log('hello')
+//         //get 3 hellos (when clicking catalog, orders, and account)
+//     } else {
+//         showingSubMenu = false
+//         //console.log('hey')
+//         //get 1 hey (when clicking about)
+//     }
+// })
+// Set showingSubMenu to true if the clicked <a> element's "link" object within menuLinks has a subLinks property (all do, except for the "link" object for ABOUT), otherwise, set it to false.
 
 
 
@@ -268,6 +344,43 @@ topMenuEl.addEventListener('click', function (event) {
 // Set the CSS topproperty of subMenuElto 100%.
 // Otherwise (showingSubMenuis false):
 // Set the CSS topproperty of subMenuElto 0.
+
+topMenuEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    if (event.target.tagName !== 'A') {
+        return
+    }
+    //console.log(event.target.innerHTML)
+    if (event.target.className === 'active') {
+        event.target.classList.remove('active')
+        showingSubMenu = false
+        subMenuEl.style.top = '0'
+        return
+    }
+    for (let i = 0; i < topMenuLinks.length; i++) {
+        topMenuLinks[i].classList.remove('active')
+    }
+    event.target.classList.add('active')
+    const linkObj = menuLinks.find(link => link.text === event.target.text)
+    //console.log(linkObj.subLinks)
+    if (linkObj.hasOwnProperty('subLinks') == true) {
+        showingSubMenu = true
+    } else {
+        showingSubMenu = false
+    }
+    if (showingSubMenu === true) {
+        // function buildSubMenu(clickedAnchorArray) {
+        //     //linkObj.sublinks
+        // }
+        // Call a buildSubMenu function passing to it the subLinksarray for the clicked <a>element.
+        subMenuEl.style.top = '100%'
+        // Set the CSS topproperty of subMenuElto 100%.
+    } else {
+        subMenuEl.style.top = '0'
+        // Set the CSS topproperty of subMenuElto 0.
+    }
+})
+
 
 
 
