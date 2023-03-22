@@ -694,11 +694,11 @@ topMenuEl.addEventListener("click", function (event) {
       topMenuLinks[i].classList.remove("active");
     }
     mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
-    // If the ABOUT link is clicked, an <h1>about</h1>should be displayed.
-    // if (event.target.innerText === "about") {
-    //   mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
-    // }
   });
+     // If the ABOUT link is clicked, an <h1>about</h1>should be displayed.
+    if (event.target.innerText === "about") {
+      mainEl.innerHTML = `<h1>${event.target.textContent}</h1`;
+    }
 });
 
 // Congrats!
